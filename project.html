@@ -179,6 +179,9 @@
       overflow: hidden;
     }
     .content-item .content-body {
+      display: flex;
+      height: 166px;
+      flex-direction: column;
       padding: 4px 16px 16px;
     }
     .content-item .img-wrap {
@@ -205,7 +208,8 @@
       font-size: 15px;
     }
     .content-item .desc {
-      min-height: 100px;
+      /* min-height: 100px; */
+      flex: 1;
       font-size: 13px;
       color: #999;
       padding: 6px 0;
