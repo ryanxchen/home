@@ -266,8 +266,17 @@
 
   <script>
     window.RYANX = {
+      currentType: 'all',
+      typeList: [
+        'all',
+        'vue',
+        'react',
+        'nodejs',
+        'other'
+      ],
       projectList: [
         {
+          type: ['react'],
           imgUrl: './images/p-react/react-rm.jpg',
           title: 'CNode-React社区',
           desc: 'CNode社区 react的实现版本',
@@ -275,6 +284,7 @@
           repositoryUrl: 'https://github.com/ryanxchen/cnode-react'
         },
         {
+          type: ['vue'],
           imgUrl: './images/p-vue/blog-front.jpg',
           title: '个人博客 前台',
           desc: '个人博客 前台 vue版本',
@@ -282,6 +292,7 @@
           repositoryUrl: '#'
         },
         {
+          type: ['react', 'nodejs'],
           imgUrl: './images/p-react/blog-admin.jpg',
           title: '个人博客 后台',
           desc: '个人博客 后台 react版本',
@@ -289,6 +300,7 @@
           repositoryUrl: 'https://github.com/ryanxchen/blog-admin'
         },
         {
+          type: ['other'],
           imgUrl: './images/p-other/blog-weapp.jpg',
           imgStyle: 'width:auto;margin: 0 auto;display: flex;',
           title: '个人博客 小程序',
@@ -297,6 +309,7 @@
           repositoryUrl: 'https://github.com/ryanxchen/cnode-react'
         },
         {
+          type: ['react'],
           imgUrl: './images/p-react/react-native.jpg',
           title: 'CNode-React社区 react-native的实现',
           desc: '🌈CNode社区 react-native的实现版本',
@@ -305,7 +318,7 @@
         }
       ],
       getItem: function (item) {
-        if (!item.imgStyle) item.imgStyle = ''
+        if (!item.imgStyle) item.imgStyle = '';
         return [
           '<li class="content-item-wrap">',
             '<div class="content-item">',
@@ -321,13 +334,22 @@
               '</div>',
             '</div>',
           '</li>'
-        ].join('')
+        ].join('');
       },
       getTemplate: function () {
-        var idx = 0, length = this.projectList.length, str = '';
-        for (; idx < length; idx++) {
-          str += this.getItem(this.projectList[idx])
+        var listAfterTypeMap = [], x = 0, len = this.projectList.length;
+        for (; x < len; x++) {
+          var item = this.projectList[x];
+          if (this.currentType === 'all' || item.type.indexOf(this.currentType) !== -1) {
+            listAfterTypeMap.push(item)
+          }
         }
+
+        var idx = 0, length = listAfterTypeMap.length, str = '';
+        for (; idx < length; idx++) {
+          str += this.getItem(listAfterTypeMap[idx])
+        }
+        console.log(222);
         document.getElementById('contentWrap').innerHTML = str
       }
     }
@@ -335,18 +357,20 @@
       var navItemList = document.querySelectorAll('.nav-item');
       window.RYANX.navClick = function (e) {
         var target = e.target;
-        var index = (target.nodeName !== 'LI' && target.parentNode.dataset.index) || target.dataset.index
+        var index = (target.nodeName !== 'LI' && target.parentNode.dataset.index) || target.dataset.index;
         index = +index;
         Array.from(navItemList).forEach(function (nav, i) {
           if (i === index && nav.className.indexOf('active') === -1) {
             nav.className = 'nav-item active';
+            window.RYANX.currentType = window.RYANX.typeList[index];
+            window.RYANX.getTemplate();
           } else if (i !== index && nav.className.indexOf('active') !== -1) {
             nav.className = 'nav-item';
           }
         })
       }
 
-      window.RYANX.getTemplate()
+      window.RYANX.getTemplate();
     }
   </script>
 </body>
