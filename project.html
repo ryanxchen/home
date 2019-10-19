@@ -328,8 +328,11 @@
                 '<p class="title">'+ item.title +'</p>',
                 '<p class="desc">' + item.desc +'</p>',
                 '<p class="bottom">',
-                  '<a class="link" href="' + item.demoUrl +'" target="_blank">演示地址</a>',
-                  '<a class="registry" href="' + item.repositoryUrl +'" target="_blank">Github</a></p>',
+                  '<a class="link" href="' + item.demoUrl +
+                  '" target="_blank" style="display:'+ (item.demoUrl === '#' ? 'none;' : '') + '">演示地址</a>',
+                  item.demoUrl === '#' ? '<span></span>' : '',
+                  '<a class="registry" href="' + item.repositoryUrl +
+                  '" target="_blank" style="display:' + (item.repositoryUrl === '#' ? 'none;' : '') + '">Github</a></p>',
               '</div>',
             '</div>',
           '</li>'
