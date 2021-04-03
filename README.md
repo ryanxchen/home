@@ -1,4 +1,4 @@
-### home-page
-home page of https://ryanxchen.com
-### project-page
-project page of http://project.ryanxchen.com
+### home link
+https://ryanxchen.github.io/home
+### project link
+https://ryanxchen.github.io/home/project.html
