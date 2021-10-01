@@ -1,4 +1,4 @@
 ### home link
-https://ryanxchen.github.io/home
+https://tanxchen.github.io/home
 ### project link
-https://ryanxchen.github.io/home/project.html
+https://tanxchen.github.io/home/project.html
