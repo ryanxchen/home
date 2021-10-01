@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="keywords" content="ryanx chen project">
-  <meta name="description" content="Ryanx Chen\'s project 编程&前端">
-  <title>RyanxChen&#x27;project</title>
+  <meta name="description" content="Tanx Chen\'s project 编程&前端">
+  <title>TanxChen&#x27;project</title>
   <style>
     *, :after, :before {
       -webkit-box-sizing: border-box;
@@ -245,12 +245,12 @@
 </head>
 <body>
   <banner class="banner">
-    <h2 class="title">RYANX&#x27;S 编程之路</h1>
+    <h2 class="title">TANX&#x27;S 编程之路</h1>
     <p class="desc">个人开发的部分项目/demo.</p>
   </banner>
 
   <nav class="nav">
-    <ul class="nav-wrap" onclick="RYANX.navClick(event)">
+    <ul class="nav-wrap" onclick="TANX.navClick(event)">
       <li class="nav-item active" data-index="0"><img src="./images/nav/all.png" alt="All"><span>All</span><div class="line"></div></li>
       <li class="nav-item" data-index="1"><img src="./images/nav/vue-logo.png" alt="Vue.js"><span>Vue.js</span><div class="line"></div></li>
       <li class="nav-item" data-index="2"><img src="./images/nav/react-logo.svg" alt="React"><span>React</span><div class="line"></div></li>
@@ -264,7 +264,7 @@
   </content>
 
   <script>
-    window.RYANX = {
+    window.TANX = {
       currentType: 'all',
       typeList: [
         'all',
@@ -279,8 +279,8 @@
           imgUrl: './images/p-react/react-rm.jpg',
           title: 'CNode-React社区',
           desc: 'CNode社区 react的实现版本',
-          demoUrl: 'https://ryanxchen.github.io/cnode-react/#/topics',
-          repositoryUrl: 'https://github.com/ryanxchen/cnode-react'
+          demoUrl: 'https://tanxchen.github.io/cnode-react/#/topics',
+          repositoryUrl: 'https://github.com/tanxchen/cnode-react'
         },
         {
           type: ['vue'],
@@ -288,7 +288,7 @@
           title: '个人博客 前台',
           desc: '个人博客 前台 vue版本',
           demoUrl: 'https://ryanxchen.github.io/blog',
-          repositoryUrl: 'https://github.com/ryanxchen/blog'
+          repositoryUrl: 'https://github.com/tanxchen/blog'
         },
         {
           type: ['react', 'nodejs'],
@@ -296,7 +296,7 @@
           title: '个人博客 后台',
           desc: '个人博客 后台 react版本',
           demoUrl: '#',
-          repositoryUrl: 'https://github.com/ryanxchen/blog-admin'
+          repositoryUrl: 'https://github.com/tanxchen/blog-admin'
         },
         {
           type: ['other'],
@@ -305,7 +305,7 @@
           title: '个人博客 小程序',
           desc: '个人博客 小程序版本',
           demoUrl: '#',
-          repositoryUrl: 'https://github.com/ryanxchen/blog-weapp'
+          repositoryUrl: 'https://github.com/tanxchen/blog-weapp'
         },
         {
           type: ['react'],
@@ -313,7 +313,7 @@
           title: 'CNode-React社区 react-native的实现',
           desc: '🌈CNode社区 react-native的实现版本',
           demoUrl: 'https://dwz.cn/j8rihicu',
-          repositoryUrl: 'https://github.com/ryanxchen/CNodeJS-React-Native'
+          repositoryUrl: 'https://github.com/tanxchen/CNodeJS-React-Native'
         }
       ],
       getItem: function (item) {
@@ -356,22 +356,22 @@
     }
     window.onload = function () {
       var navItemList = document.querySelectorAll('.nav-item');
-      window.RYANX.navClick = function (e) {
+      window.TANX.navClick = function (e) {
         var target = e.target;
         var index = (target.nodeName !== 'LI' && target.parentNode.dataset.index) || target.dataset.index;
         index = +index;
         Array.from(navItemList).forEach(function (nav, i) {
           if (i === index && nav.className.indexOf('active') === -1) {
             nav.className = 'nav-item active';
-            window.RYANX.currentType = window.RYANX.typeList[index];
-            window.RYANX.getTemplate();
+            window.TANX.currentType = window.TANX.typeList[index];
+            window.TANX.getTemplate();
           } else if (i !== index && nav.className.indexOf('active') !== -1) {
             nav.className = 'nav-item';
           }
         })
       }
 
-      window.RYANX.getTemplate();
+      window.TANX.getTemplate();
     }
   </script>
 </body>
